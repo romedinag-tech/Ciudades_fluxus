@@ -1,0 +1,105 @@
+/* ============================================================================
+   FLUXUS theme override — re-skin del sitio "Ciudades y tendencias de Chile"
+   al look de Fluxus Ingeniería (dark navy + cyan). Se carga DESPUÉS del <style>
+   inline de cada página, por lo que predomina. Las dos páginas usan los mismos
+   nombres de variables (--navy/--or/--bg/--ink/--mut/--line), así que basta con
+   redefinirlas + sobrescribir las superficies claras hardcodeadas.
+   ========================================================================== */
+:root{
+  --neural:#0D6EFD; --cyan:#18D6FF; --greenfx:#21F2C3;
+  --panel:#0A2348; --panel2:#0e2a55;
+  --grad:linear-gradient(135deg,#0D6EFD 0%,#18D6FF 50%,#21F2C3 100%);
+  /* remap de las variables existentes */
+  --navy:#0D6EFD; --navy2:#18D6FF; --or:#18D6FF; --teal:#18D6FF;
+  --green:#21F2C3; --red:#ff6b6b;
+  --bg:#071B35; --ink:#E6EEF8; --mut:#8AA0C7; --line:#16386a;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',Segoe UI,system-ui,-apple-system,sans-serif !important;
+  background:#071B35 !important; color:var(--ink) !important;
+  background-image:radial-gradient(rgba(120,180,255,.05) 1px,transparent 1.5px) !important;
+  background-size:30px 30px; background-attachment:fixed;
+}
+h1,h2,h3,h4{color:#fff !important; letter-spacing:-.01em}
+a{color:var(--cyan)}
+
+/* ---- headers / banners ---- */
+header{background:linear-gradient(135deg,#031B4E 0%,#071B35 100%) !important;border-bottom:1px solid var(--line)}
+.warn{background:linear-gradient(135deg,#0D6EFD,#18D6FF) !important;color:#04223f !important}
+.warn a{color:#04223f !important;text-decoration:underline}
+.nav{background:#031B4E !important;border-bottom:1px solid var(--line)}
+.nav a{color:#a9c4e6 !important}
+.nav a.on{background:var(--panel) !important;color:#fff !important;border-bottom-color:var(--cyan) !important}
+.tag,.selbar{background:rgba(24,214,255,.08) !important;border:1px solid var(--line) !important}
+
+/* ---- tabs ---- */
+.tabs{background:#071B35 !important;border-bottom:1px solid var(--line)}
+.tabs button{color:var(--mut)}
+.tabs button.on{color:var(--cyan) !important;border-bottom-color:var(--cyan) !important}
+.tabs button:hover{color:#fff}
+
+/* ---- sidebar ---- */
+.sidebar{background:var(--panel) !important;border-right:1px solid var(--line)}
+.rn-region,.rn-region+ .rn-region{border-bottom:1px solid var(--line)}
+.rn-head{color:#cfe0f7 !important}
+.rn-head:hover,.rn-comunas button:hover{background:var(--panel2) !important}
+.rn-head .cnt{background:var(--panel2) !important;color:var(--mut) !important}
+.rn-region.open>.rn-head{color:var(--cyan) !important}
+.rn-comunas button{color:#cfe0f7 !important}
+.rn-comunas button.on{background:var(--neural) !important;color:#fff !important}
+
+/* ---- generic surfaces: cards / panels / inputs ---- */
+.kpi,.chartbox,.panelctrl,.cmp-pick,.tablewrap,.box,.empty,
+#cbox,#clist,.addrow input,.addrow #alist,.kpisel,.panelctrl select,
+.seg,.seg button,#evoPop,.cmp-pick input{
+  background:var(--panel) !important;color:var(--ink) !important;border-color:var(--line) !important;
+  box-shadow:none !important;
+}
+.kpi,.chartbox,.box{box-shadow:0 14px 40px rgba(24,214,255,.07) !important}
+.card{background:var(--panel) !important;border-color:var(--line) !important}
+.card:hover{border-color:var(--cyan) !important;box-shadow:0 14px 40px rgba(24,214,255,.16) !important}
+input,select,textarea{background:var(--panel) !important;color:var(--ink) !important;border-color:var(--line) !important}
+::placeholder{color:#6f87ad !important}
+#cbox{font-weight:600}
+#clist .opt:hover,#clist .opt.hi,.addrow #alist .opt:hover,.addrow #alist .opt.hi{background:var(--panel2) !important}
+#clist .grouphd{background:var(--panel2) !important;color:var(--mut) !important}
+.kpi .v{color:var(--cyan) !important}
+.kpi .v.or{color:var(--greenfx) !important}
+.kpi .l,.lead,.panelctrl label,.chartbox p{color:var(--mut) !important}
+.kpi .s{color:var(--cyan) !important}
+h2 .bar,.grp-hd{border-color:var(--cyan) !important}
+h2 .bar{background:var(--grad) !important}
+.grp-hd{color:#fff !important}
+
+/* ---- segmented buttons / pills ---- */
+.seg button.on,.ctrl button.on{background:var(--neural) !important;color:#fff !important}
+.ctrl button{background:var(--panel) !important;color:var(--cyan) !important;border:1px solid #1f4f8a !important}
+.chip{background:var(--neural) !important;color:#fff !important}
+
+/* ---- tables ---- */
+table{color:var(--ink)}
+th,td{border-bottom:1px solid var(--line) !important}
+th:first-child,td:first-child{background:var(--panel) !important}
+thead th,thead th:first-child{background:var(--neural) !important;color:#fff !important}
+tbody tr:hover td,tbody tr:hover td:first-child{background:var(--panel2) !important}
+td.best{color:var(--greenfx) !important}
+td.worst{color:var(--red) !important}
+td.pos{color:var(--greenfx) !important}
+
+/* ---- maps / leaflet ---- */
+.map,#map,#zmap,.tendframe{border:1px solid var(--line) !important;background:#06224a !important}
+.tendframe{background:transparent !important}
+.leaflet-container{background:#06122a !important}
+.legend,.info{background:var(--panel) !important;color:var(--ink) !important;box-shadow:0 10px 30px rgba(0,0,0,.4) !important}
+.legend b,.info b{color:var(--cyan) !important}
+
+/* ---- callouts (note) ---- */
+.note{background:var(--panel2) !important;border:1px solid var(--line) !important;border-left:4px solid var(--cyan) !important;color:#cdddf3 !important}
+
+/* ---- footer ---- */
+footer{color:var(--mut) !important;border-top:1px solid var(--line) !important}
+
+/* ---- hover-popup mini chart (usos.html) ---- */
+#evoPop h4{color:var(--cyan) !important}
+.uname{border-bottom-color:#3a5a82 !important;color:#cfe0f7 !important}
